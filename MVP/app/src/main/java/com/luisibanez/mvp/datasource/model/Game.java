@@ -1,12 +1,13 @@
 package com.luisibanez.mvp.datasource.model;
 
+import android.util.Log;
+
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Currency;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -14,6 +15,11 @@ import java.util.TimeZone;
  * Created by libanez on 22/06/2016.
  */
 public class Game {
+
+    private static final String TAG = Game.class.getName();
+    private static final String CURRENCY_CODE_GBP = "GBP";
+
+    private static String currencyCode;
 
     private String name;
     private long jackpot;
@@ -42,10 +48,12 @@ public class Game {
     }
 
     public String getFormattedJackpot(){
-        //TODO get instance from file
-        Currency gbp = Currency.getInstance("GBP");
-        NumberFormat format = NumberFormat.getCurrencyInstance(Locale.getDefault());
-        format.setCurrency(gbp);
+        if(currencyCode == null && currencyCode.isEmpty()){
+            currencyCode = CURRENCY_CODE_GBP;
+        }
+        Currency currency = Currency.getInstance(currencyCode);
+        NumberFormat format = NumberFormat.getCurrencyInstance();
+        format.setCurrency(currency);
         return format.format(jackpot);
     }
 
@@ -64,9 +72,14 @@ public class Game {
             DateFormat df = DateFormat.getDateTimeInstance(datestyle, timestyle, Locale.getDefault());
             return df.format(dateObj);
         } catch (ParseException e) {
-            //TODO: send error bad parse string
+            Log.e(TAG, "Error parsing date:\n" +
+                    "Input: " + date );
         }
 
         return "";
+    }
+
+    public static void setCurrencyCode(String currencyCode){
+        Game.currencyCode = currencyCode;
     }
 }

@@ -1,6 +1,7 @@
 package com.luisibanez.mvp.datasource.remote;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.luisibanez.mvp.datasource.GamesDataSource;
 import com.luisibanez.mvp.datasource.model.Game;
@@ -19,7 +20,9 @@ import java.net.URL;
  */
 public class GamesRemoteDataSource implements GamesDataSource {
 
+    private static final String TAG = GamesRemoteDataSource.class.getName();
     private static final String ENDPOINT = "https://dl.dropboxusercontent.com/u/49130683/nativeapp-test.json";
+
     private static GamesRemoteDataSource INSTANCE;
 
     private static final int SERVICE_LATENCY_IN_MILLIS = 5000;
@@ -38,7 +41,7 @@ public class GamesRemoteDataSource implements GamesDataSource {
     public void getGames(final @NonNull LoadGamesCallback callback) {
         ResponseGame response = requestGamesFile();
         if (response != null){
-            callback.onGamesLoaded(response.getGames());
+            callback.onGamesLoaded(response);
         }else{
             callback.onDataNotAvailable();
         }
@@ -62,7 +65,8 @@ public class GamesRemoteDataSource implements GamesDataSource {
             response = ResponseGame.fromJson(result.toString());
 
         } catch (IOException e) {
-            //TODO: add more error responses
+            Log.e(TAG, "Error parsing http response:\n" +
+                    "url: " + ENDPOINT + "\n");
         }
 
         return response;
@@ -79,14 +83,8 @@ public class GamesRemoteDataSource implements GamesDataSource {
     }
 
     @Override
-    public void saveGame(@NonNull Game game) {
+    public void saveResponse(@NonNull ResponseGame responseGame) {
         // Not required because this option is not available in the API
-    }
-
-    @Override
-    public void deleteGame(@NonNull String gameName) {
-        // Not required because this option is not available in the API
-
     }
 
     @Override
@@ -95,9 +93,9 @@ public class GamesRemoteDataSource implements GamesDataSource {
     }
 
     @Override
-    public void refreshGames() {
-        // Not required because the {@link GamesRepositoryImpl} handles the logic of refreshing the
-        // games from all the available data sources.
+    public boolean isValidData() {
+        // Data in API is never expired
+        return true;
     }
 }
 

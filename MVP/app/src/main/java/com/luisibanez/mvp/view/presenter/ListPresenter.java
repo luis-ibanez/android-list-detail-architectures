@@ -19,8 +19,6 @@ public class ListPresenter {
 
     private final View listView;
 
-    private boolean firstLoad = true;
-
     public ListPresenter(@NonNull GetGames getGamesInteractor, @NonNull View gamesView) {
         this.getGamesInteractor = checkNotNull(getGamesInteractor, "getGamesInteractor cannot be null");
         listView = checkNotNull(gamesView, "gamesView cannot be null!");
@@ -34,8 +32,7 @@ public class ListPresenter {
 
     public void loadGames(boolean forceUpdate) {
         // Simplification for sample: a network reload will be forced on first load.
-        loadGames(forceUpdate || firstLoad, true);
-        firstLoad = false;
+        loadGames(forceUpdate, true);
     }
 
     /**

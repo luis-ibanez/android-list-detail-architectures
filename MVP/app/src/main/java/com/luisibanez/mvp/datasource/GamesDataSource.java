@@ -3,6 +3,7 @@ package com.luisibanez.mvp.datasource;
 import android.support.annotation.NonNull;
 
 import com.luisibanez.mvp.datasource.model.Game;
+import com.luisibanez.mvp.datasource.model.ResponseGame;
 
 import java.util.List;
 
@@ -11,11 +12,9 @@ import java.util.List;
  */
 public interface GamesDataSource {
 
-    void refreshGames();
-
     interface LoadGamesCallback {
 
-        void onGamesLoaded(List<Game> games);
+        void onGamesLoaded(ResponseGame responseGame);
 
         void onDataNotAvailable();
     }
@@ -31,9 +30,9 @@ public interface GamesDataSource {
 
     void getGame(@NonNull String taskId, @NonNull GetGameCallback callback);
 
-    void saveGame(@NonNull Game game);
-
-    void deleteGame(@NonNull String gameName);
+    void saveResponse(@NonNull ResponseGame responseGame);
 
     void deleteAllGames();
+
+    boolean isValidData();
 }
