@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2016 Luis Ibanez Alonso.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.luisibanez.mvp.view.activity;
 
 import android.os.Bundle;
@@ -19,9 +34,6 @@ import com.luisibanez.mvp.util.ActivityUtils;
 import com.luisibanez.mvp.view.fragment.DetailFragment;
 import com.luisibanez.mvp.view.presenter.DetailPresenter;
 
-/**
- * Created by libanez on 22/06/2016.
- */
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_GAME_NAME = "GAME_NAME";
