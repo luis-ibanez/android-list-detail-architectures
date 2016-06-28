@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/list_item_padding">
+
+        <TextView
+            android:id="@+id/detailName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAME"/>
+
+        <TextView
+            android:id="@+id/detailJackpot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JACKPOT"/>
+
+        <TextView
+            android:id="@+id/detailDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DATE"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/detailEmptyCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_game"
+        android:padding="@dimen/list_item_padding"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/detailProgressBar"
+        style="@style/AppTheme.ProgressBar" />
+
+</RelativeLayout>

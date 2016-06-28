@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MVP</string>
+
+    <!-- GAMES LIST -->
+    <string name="no_games_all">There is no games loaded, check your internet connection and swipe to refresh.</string>
+    <string name="loading_games_error">There was an error trying to load the games, please check your internet connection and swipe to refresh</string>
+
+    <!-- GAMES DETAIL -->
+    <string name="no_game">There is no data for this game. Go back, check your internet connection and swipe to refresh.</string>
+
+</resources>

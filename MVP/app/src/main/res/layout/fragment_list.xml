@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.luisibanez.mvp.view.custom.ScrollChildSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/gamesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/games_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/noGames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="@dimen/list_item_padding">
+
+            <TextView
+                android:id="@+id/noGamesMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:text="@string/no_games_all"
+                android:layout_marginBottom="@dimen/list_item_padding" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</com.luisibanez.mvp.view.custom.ScrollChildSwipeRefreshLayout>
