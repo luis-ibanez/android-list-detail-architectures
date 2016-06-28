@@ -15,14 +15,10 @@
  */
 package com.luisibanez.mvp.datasource.local;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.luisibanez.mvp.datasource.GamesDataSource;
 import com.luisibanez.mvp.datasource.model.Game;
 import com.luisibanez.mvp.datasource.model.ResponseGame;
@@ -33,8 +29,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.luisibanez.mvp.util.Preconditions.checkNotNull;
 
